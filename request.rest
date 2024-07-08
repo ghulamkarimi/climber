@@ -1,0 +1,13 @@
+### Redgister User
+ POST http://localhost:3009/users/register 
+ Content-Type: application/json
+
+ {
+    "firstName":"ali",
+    "lastName":"akrami",
+    "email":"amene@gmail.com",
+    "password":"123456",
+    "confirmPassword":"123456",
+    "gender":"female",
+    "telephone":"1234567"
+}
