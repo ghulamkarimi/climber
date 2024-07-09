@@ -1,4 +1,5 @@
 export interface IUser {
+    _id:string,
     firstName: string;
     lastName: string;
     email: string;
@@ -6,11 +7,12 @@ export interface IUser {
     telephone: string;
     gender: string;
     profile_photo: string;
-    addres :{
+    address :{
         country: string;
         city: string;
         street: string;
         number: string;
         postalCode: string;
     }
+    isPasswordMatched(enteredPassword: string): Promise<boolean>;
 }

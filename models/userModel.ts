@@ -33,7 +33,7 @@ const userSchema = new mongoose.Schema<IUser>({
         default: "",
     },
 
-    addres: {
+    address: {
         country: {
             type: String,
          
@@ -80,6 +80,12 @@ userSchema.pre("save", async function (next) {
         }
     }
 });
+
+
+userSchema.methods.isPasswordMatched = async function (enteredPassword) {
+    this.password = await bcrypt.compare(enteredPassword,this.password)
+    return this.password
+}
 
 const Users = mongoose.model('Users', userSchema);
 export default Users;
