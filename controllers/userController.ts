@@ -10,9 +10,11 @@ export const registerUser = asyncHandler(
     const { firstName, lastName, email, password, confirmPassword, gender } =
       req.body;
     const existingUser = await Users.findOne({ email });
-    if (existingUser) throw new Error("User already exists");
-    if (password !== confirmPassword) throw new Error("Passwords do not match");
+
     try {
+      if (existingUser) throw new Error("User already exists");
+      if (password !== confirmPassword)
+        throw new Error("Passwords do not match");
       const user = await Users.create({
         firstName,
         lastName,
@@ -33,13 +35,23 @@ export const registerUser = asyncHandler(
 
 export const userLogin = asyncHandler(async (req: Request, res: Response) => {
   const { email, password } = req.body;
-  try {
-    const userFound = await Users.findOne({ email });
-    if (!userFound) throw new Error(" Email not found please register");
-    if (userFound && userFound.isPasswordMatched(password)) {
-        
-      const {
-        _id:userId,
+  console.log(req.body);
+  const userFound = await Users.findOne({ email });
+  if (!userFound) throw new Error(" Email not found please register");
+  if (userFound && (await userFound.isPasswordMatched(password))) {
+    const {
+      _id: userId,
+      firstName,
+      lastName,
+      email,
+      profile_photo,
+      address,
+      telephone,
+      gender,
+    } = userFound;
+    const accessToken = jwt.sign(
+      {
+        _id: userId,
         firstName,
         lastName,
         email,
@@ -47,22 +59,15 @@ export const userLogin = asyncHandler(async (req: Request, res: Response) => {
         address,
         telephone,
         gender,
-      } = userFound;
-      const accessToken = await jwt.sign({
-        _id:userId,
-        firstName,
-        lastName,
-        email,
-        profile_photo,
-        address,
-        telephone,
-        gender,
-      },process.env.ACCESS_TOKEN ,{
+      },
+      process.env.ACCESS_TOKEN,
+      {
         expiresIn: "30d",
+      }
+    );
 
-      })
-
-      const refreshToken = jwt.sign({
+    const refreshToken = jwt.sign(
+      {
         firstName,
         lastName,
         email,
@@ -70,29 +75,30 @@ export const userLogin = asyncHandler(async (req: Request, res: Response) => {
         address,
         telephone,
         gender,
-      },process.env.REFRESH_TOKEN,{
-        expiresIn:"2m"
-      })
-      const user = await Users.findByIdAndUpdate(userId,{
-        access_token:accessToken
-      })
-      res.cookie("accessToken",accessToken,{
-        httpOnly:true,
-        maxAge:24*60*60*30*1000,
-        secure:false,
-        sameSite:"lax"
-      });
+      },
+      process.env.REFRESH_TOKEN,
+      {
+        expiresIn: "2m",
+      }
+    );
+    const user = await Users.findByIdAndUpdate(userId, {
+      access_token: accessToken,
+    });
+    res.cookie("accessToken", accessToken, {
+      httpOnly: true,
+      maxAge: 24 * 60 * 60 * 30 * 1000,
+      secure: false,
+      /* sameSite:"lax" */
+    });
 
-      const decode = jwtDecode<IUser>(accessToken)
-      res.json({
-        user:user,
-        userInfo:decode,
-        refreshToken:refreshToken,
-        message:"login successfully"
-
-      })
-    }
-  } catch (error) {
-    throw new Error("Login Failed you have a problem")
+    const decode = jwtDecode<IUser>(accessToken);
+    res.status(200).json({
+      user: user,
+      userInfo: decode,
+      refreshToken: refreshToken,
+      message: "login successfully",
+    });
+  } else {
+    throw new Error("Invalid username or password");
   }
 });
