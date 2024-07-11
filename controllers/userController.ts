@@ -88,17 +88,29 @@ export const userLogin = asyncHandler(async (req: Request, res: Response) => {
       httpOnly: true,
       maxAge: 24 * 60 * 60 * 30 * 1000,
       secure: false,
-      /* sameSite:"lax" */
+      sameSite: "strict",
     });
 
     const decode = jwtDecode<IUser>(accessToken);
     res.status(200).json({
       user: user,
       userInfo: decode,
-      refreshToken: refreshToken,
+      token: refreshToken,
       message: "login successfully",
     });
   } else {
     throw new Error("Invalid username or password");
   }
+});
+
+export const userLogout = asyncHandler(async (req: Request, res: Response) => {
+  const token = req.cookies.accessToken;
+  console.log("token", token);
+  if (!token) throw new Error("no token ");
+  const user = await Users.findOne({ access_token: token });
+  if (!user) throw new Error("no user");
+  user.access_token=undefined
+  user.save()
+  res.clearCookie("accessToken");
+  res.json({ message: "logout Successful" });
 });

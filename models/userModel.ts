@@ -32,6 +32,10 @@ const userSchema = new mongoose.Schema<IUser>({
         type: String,
         default: "",
     },
+    access_token: {
+        type: String,
+      },
+   
 
     address: {
         country: {
@@ -55,6 +59,7 @@ const userSchema = new mongoose.Schema<IUser>({
             
         }
     },
+  
 
 })
 

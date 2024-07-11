@@ -7,6 +7,7 @@ export interface IUser {
     telephone: string;
     gender: string;
     profile_photo: string;
+    access_token: string;
     address :{
         country: string;
         city: string;

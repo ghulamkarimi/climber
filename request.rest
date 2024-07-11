@@ -18,6 +18,16 @@ POST http://localhost:3009/users/login
 Content-Type: application/json
 
 {
-    "email":"amene@gmail.com",
-    "password":"123456"
+    "email":"Khalil.haouas@gmail.com",
+    "password":"1234567"
+}
+
+
+#### logout User
+DELETE  http://localhost:3009/users/logout
+Content-Type: application/json
+
+{
+    "email":"Khalil.haouas@gmail.com",
+    "password":"1234567"
 }
