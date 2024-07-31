@@ -4,6 +4,7 @@ import { dbConnect } from "./config/dbConnect";
 import userRouter from "./routes/userRouter";
 import cors from "cors";
 import cookieParser from "cookie-parser";
+import categoriesRouter from "./routes/categoriesRouter";
 
 dotenv.config();
 dbConnect();
@@ -22,6 +23,7 @@ app.use(cookieParser());
 
 
 app.use("/users", userRouter);
+app.use("/categories" , categoriesRouter);
 
 const PORT = process.env.PORT || 3004;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));

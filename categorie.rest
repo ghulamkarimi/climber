@@ -1,0 +1,13 @@
+ POST http://localhost:3009/categories/create
+ Content-Type: application/json
+
+ {
+    "email":"amene@gmail.com",
+    "title":"khalil",
+    "price":"123456",
+    "size":"123456",  
+    "bewertung":3,  
+    "bild":"https://th.bing.com/th/id/OPEC.7ZSFWSV1pykp1w474C474?w=200&h=220&rs=1&o=5&dpr=1.1&pid=21.1",
+    "categories":"men"
+ }
+   

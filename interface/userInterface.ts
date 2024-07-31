@@ -5,6 +5,7 @@ export interface IUser {
     email: string;
     password: string;
     telephone: string;
+    isAdmin: boolean;
     gender: string;
     profile_photo: string;
     access_token: string;

@@ -9,6 +9,7 @@
     "password":"123456",
     "confirmPassword":"123456",
     "gender":"male",
+    "isAdmin":true,
     "telephone":"1234567"
 }
 

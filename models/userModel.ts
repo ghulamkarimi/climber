@@ -36,7 +36,10 @@ const userSchema = new mongoose.Schema<IUser>({
         type: String,
       },
    
-
+    isAdmin : {
+        type: Boolean,
+        default: false
+    },
     address: {
         country: {
             type: String,

@@ -20,6 +20,7 @@ export interface IProductsItems {
   export interface ICategorieItemsMen {
     id: string;
     art: string;
+isAdmin: boolean;
     categories: string;
     title: string;
     price: string;
