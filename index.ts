@@ -6,6 +6,7 @@ import cors from "cors";
 import cookieParser from "cookie-parser";
 import categoriesRouter from "./routes/categoriesRouter";
 import { validate } from "./middleware/validator";
+import { errorHandler, notFound } from "./middleware/errors/errorHandler";
 
 dotenv.config();
 dbConnect();
@@ -23,6 +24,10 @@ app.use(
 app.use(cookieParser());
 app.use("/users", userRouter);
 app.use("/categories" , categoriesRouter);
+
+
+app.use(errorHandler)
+app.use(notFound)
 
 const PORT = process.env.PORT || 3004;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
