@@ -1,7 +1,7 @@
 import express from 'express';
 
 
-import { registerUser, userLogin, userLogout } from '../controllers/userController';
+
 import { userValidator, validate } from '../middleware/validator';
 import { accessTokenExpired, registerUser, userLogin, userLogout } from '../controllers/userController';
 import { refreshToken } from '../middleware/token/refreshToken';

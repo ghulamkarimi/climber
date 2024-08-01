@@ -5,9 +5,9 @@
  {
     "firstName":"amir",
     "lastName":"akrami",
-    "email":"ghgj@gmail.com",
-    "password":"Sara.12345",
-    "confirmPassword":"Sara.12345",
+    "email":"ghgjhhhhhkkbbbhll@gmail.com",
+    "password":"Sara.2222",
+    "confirmPassword":"Sara.2222",
     "gender":"male",
     "isAdmin":true,
     "telephone":"1234567"
