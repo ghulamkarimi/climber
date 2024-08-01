@@ -5,8 +5,12 @@ import userRouter from "./routes/userRouter";
 import cors from "cors";
 import cookieParser from "cookie-parser";
 import categoriesRouter from "./routes/categoriesRouter";
+
+
+
 import { validate } from "./middleware/validator";
 import { errorHandler, notFound } from "./middleware/errors/errorHandler";
+
 
 dotenv.config();
 dbConnect();
