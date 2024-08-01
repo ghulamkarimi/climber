@@ -1,5 +1,5 @@
 import asyncHandler from "express-async-handler";
-import { Request, Response } from "express";
+import { Request, Response, request, response } from "express";
 import Users from "../models/userModel";
 import jwt from "jsonwebtoken";
 import { jwtDecode } from "jwt-decode";
@@ -109,8 +109,27 @@ export const userLogout = asyncHandler(async (req: Request, res: Response) => {
   if (!token) throw new Error("no token ");
   const user = await Users.findOne({ access_token: token });
   if (!user) throw new Error("no user");
-  user.access_token=undefined
-  user.save()
+  user.access_token = undefined;
+  user.save();
   res.clearCookie("accessToken");
   res.json({ message: "logout Successful" });
 });
+
+
+export const accessTokenExpired = asyncHandler(async (req: Request, res: Response) => {
+  const token = req.cookies.accessToken;
+  
+  if (!token) {
+     res.status(401).json({ message: "Token not found, user is not logged in" });
+  }
+
+    const user = await Users.findOne({ access_token: token });
+
+    if (!user) {
+       res.status(401).json({ message: "User is not logged in" });
+    }
+
+    res.json({ user: user, message: "User is logged in" });
+  } 
+);
+
