@@ -3,11 +3,11 @@
  Content-Type: application/json
 
  {
-    "firstName":"khalil",
+    "firstName":"amir",
     "lastName":"akrami",
-    "email":"amene@gmail.com",
-    "password":"123456",
-    "confirmPassword":"123456",
+    "email":"ghgj@gmail.com",
+    "password":"Sara.12345",
+    "confirmPassword":"Sara.12345",
     "gender":"male",
     "isAdmin":true,
     "telephone":"1234567"

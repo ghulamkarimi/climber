@@ -12,15 +12,15 @@
  }
 
 ### edit category
- PUT http://localhost:3009/categories/edit/66aa1e3444c30e728b5bcd61
+ PUT http://localhost:3009/categories/edit/66ab315e8462fb8f11513678
  Content-Type: application/json
 
  {
-   "email":"amene@gmail.com",
-   "title":"khali",
-    "price":"123456",
-    "size":"123456",  
-    "bewertung":3,  
+   "userId":"66aa0e422fc0f09675f566fd",
+   "title":"khalil",
+    "price":"400",
+    "size":"28",  
+    "bewertung":4,  
     "bild":"https://th.bing.com/th/id/OPEC.7ZSFWSV1pykp1w474C474?w=200&h=220&rs=1&o=5&dpr=1.1&pid=21.1",
     "categories":"men"
  }

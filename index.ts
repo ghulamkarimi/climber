@@ -5,11 +5,13 @@ import userRouter from "./routes/userRouter";
 import cors from "cors";
 import cookieParser from "cookie-parser";
 import categoriesRouter from "./routes/categoriesRouter";
+import { validate } from "./middleware/validator";
 
 dotenv.config();
 dbConnect();
 
 const app = express();
+
 
 app.use(express.json());
 app.use(
@@ -19,9 +21,6 @@ app.use(
   })
 );
 app.use(cookieParser());
-
-
-
 app.use("/users", userRouter);
 app.use("/categories" , categoriesRouter);
 
