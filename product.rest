@@ -1,0 +1,17 @@
+### getAllProducts
+POST  http://localhost:3009/products/getAll
+Content-Type: application/json
+
+
+### create product
+POST http://localhost:3009/products/create
+Content-Type: application/json
+
+{
+    "userId":"66aca16c0c3b8dfd2e1b0ac8",
+    "title":"khalil",
+    "description":"khalil",
+    "price":100,
+    "photo":"https://th.bing.com/th/id/OPEC.7ZSFWSV1pykp1w474C474?w=200&h=220&rs=1&o=5&dpr=1.1&pid=21.1",
+   
+}

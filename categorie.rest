@@ -2,25 +2,33 @@
  Content-Type: application/json
 
  {
-    "email":"amene@gmail.com",
+    "userId":"66aca7fea838c2237f4dce5e",
     "title":"khalil",
-    "price":"123456",
-    "size":"123456",  
-    "bewertung":3,  
     "bild":"https://th.bing.com/th/id/OPEC.7ZSFWSV1pykp1w474C474?w=200&h=220&rs=1&o=5&dpr=1.1&pid=21.1",
     "categories":"men"
  }
 
 ### edit category
- PUT http://localhost:3009/categories/edit/66ab315e8462fb8f11513678
+ PUT http://localhost:3009/categories/edit/66acb1f6082652c1a04ba566
  Content-Type: application/json
 
  {
-   "userId":"66aa0e422fc0f09675f566fd",
-   "title":"khalil",
-    "price":"400",
-    "size":"28",  
-    "bewertung":4,  
-    "bild":"https://th.bing.com/th/id/OPEC.7ZSFWSV1pykp1w474C474?w=200&h=220&rs=1&o=5&dpr=1.1&pid=21.1",
-    "categories":"men"
+      "userId":"66aca16c0c3b8dfd2e1b0ac8",
+      "title":"khalilmmm",
+      "bild":"https://th.bing.com/th/id/OPEC.7ZSFWSV1pykp1w474C474?w=200&h=220&rs=1&o=5&dpr=1.1&pid=21.1",
+      "categories":"menmmmm"
  }
+
+### delete category
+   DELETE http://localhost:3009/categories/delete/66acb5899912ac9645bb53aa
+   Content-Type: application/json
+   
+ {
+    "userId":"66aca7fea838c2237f4dce5e"
+ }
+
+### get all categories
+   GET http://localhost:3009/categories/getAll
+   Content-Type: application/json
+   
+ 
