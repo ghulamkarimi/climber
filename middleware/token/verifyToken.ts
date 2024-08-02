@@ -1,11 +1,9 @@
-import { Response, Request } from "express";
+import { Response } from "express";
 import Jwt, { JwtPayload, Secret } from "jsonwebtoken";
-import { IUser } from "../../interface/userInterface";
+import { CustomRequest } from "../../types/custom";
 
 
-interface CustomRequest extends  Request{
-    userId?:IUser
-}
+
 
 export const verifyToken = (req: CustomRequest, res: Response,next:Function) => {
   const authHeader = req.headers.authorization;
@@ -14,7 +12,7 @@ export const verifyToken = (req: CustomRequest, res: Response,next:Function) => 
   Jwt.verify(token, process.env.REFRESH_TOKEN as Secret, (error, decode) => {
     if (error || !decode || typeof decode !== "object")
       throw new Error("Token verification failed");
-    req.userId = (decode as JwtPayload).userId
+    req.user.userId = (decode as JwtPayload).userId
   });
   next()
 };

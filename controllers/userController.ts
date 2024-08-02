@@ -7,7 +7,7 @@ import { IUser } from "../interface/userInterface";
 
 export const registerUser = asyncHandler(
   async (req: Request, res: Response) => {
-    const { firstName, lastName, email, password, confirmPassword, gender } =
+    const { firstName, lastName, email, password, confirmPassword, gender ,isAdmin} =
       req.body;
     const existingUser = await Users.findOne({ email });
 
@@ -21,6 +21,7 @@ export const registerUser = asyncHandler(
         email,
         password,
         gender,
+        isAdmin
       });
       res.json({
         user: user,
@@ -48,6 +49,7 @@ export const userLogin = asyncHandler(async (req: Request, res: Response) => {
       address,
       telephone,
       gender,
+      isAdmin
     } = userFound;
     const accessToken = jwt.sign(
       {
@@ -59,6 +61,7 @@ export const userLogin = asyncHandler(async (req: Request, res: Response) => {
         address,
         telephone,
         gender,
+        isAdmin
       },
       process.env.ACCESS_TOKEN,
       {
@@ -75,6 +78,7 @@ export const userLogin = asyncHandler(async (req: Request, res: Response) => {
         address,
         telephone,
         gender,
+        isAdmin
       },
       process.env.REFRESH_TOKEN,
       {
