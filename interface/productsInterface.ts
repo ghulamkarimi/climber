@@ -1,30 +1,37 @@
+import mongoose from "mongoose";
+
 export interface IProductsItems {
   id: string;
-  bild: string;
-  bildDetailsOne: string;
-  bildDetailsTwo: string;
-  bildDetailsThree: string;
-  bildDetailsFour: string;
+  user? : string;
+  photo: string;
+  photoDetailsOne: string;
+  photoDetailsTwo: string;
+  photoDetailsThree: string;
+  photoDetailsFour: string;
   title: string;
   price: string;
-  bildDetailsTow: string;
+  photoDetailsTow: string;
   descriptions: string
   evaluation: number
   colors: string[]
   sizes: string[]
 }
 
+export interface ITopProducts {
+  title: string;
+  photo: string;
+  price: string;
+  evaluation: number;
+  user?: mongoose.Types.ObjectId;
+  category?: mongoose.Types.ObjectId
+}
+
 export type TProducts = Partial<IProductsItems>
 
 
-export interface ICategorieItemsMen {
-  id: string;
-  art: string;
-  isAdmin: boolean;
-  categories: string;
+export interface ICategories {
+  _id: string;
+  categories: "men" | "women";
   title: string;
-  price: string;
-  size: string;
-  bewertung: number;
-  bild: string;
+  photo: string;
 }

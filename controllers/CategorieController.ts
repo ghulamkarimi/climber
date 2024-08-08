@@ -13,7 +13,7 @@ export const getAllCategories = asyncHandler(async (req: Request, res: Response)
 
 
 export const createCategories = asyncHandler(async (req: Request, res: Response) => {
-  const { userId, categories, title, photo } = req.body;
+  const { userId, categories, title, photo,description} = req.body;
 
   try {
     const user = await checkAdmin(new mongoose.Types.ObjectId(userId));
@@ -21,6 +21,7 @@ export const createCategories = asyncHandler(async (req: Request, res: Response)
       categories,
       user: user._id,
       title,
+      description,
       photo,
     });
 

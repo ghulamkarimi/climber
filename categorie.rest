@@ -1,16 +1,18 @@
- POST http://localhost:3009/categories/create
- Content-Type: application/json
+POST http://localhost:3009/categories/create
+Content-Type: application/json
 
- {
-    "userId":"66aca7fea838c2237f4dce5e",
-    "title":"khalil",
-    "bild":"https://th.bing.com/th/id/OPEC.7ZSFWSV1pykp1w474C474?w=200&h=220&rs=1&o=5&dpr=1.1&pid=21.1",
-    "categories":"men"
- }
+{
+  "userId": "66b1e14c1e46ff4305589b02",
+  "title": "Suit",
+  "categories": "men",
+  "description": "Suit for mens ",
+  "photo": "https://th.bing.com/th/id/OIP.Xt5_b3Q8Q07kjdT1bfuP2wAAAA?rs=1&pid=ImgDetMain"
+}
+
 
 ### edit category
  PUT http://localhost:3009/categories/edit/66acb1f6082652c1a04ba566
- Content-Type: application/json
+Content-Type: application/json
 
  {
       "userId":"66aca16c0c3b8dfd2e1b0ac8",
@@ -21,7 +23,7 @@
 
 ### delete category
    DELETE http://localhost:3009/categories/delete/66acb5899912ac9645bb53aa
-   Content-Type: application/json
+Content-Type: application/json
    
  {
     "userId":"66aca7fea838c2237f4dce5e"
@@ -29,6 +31,6 @@
 
 ### get all categories
    GET http://localhost:3009/categories/getAll
-   Content-Type: application/json
+Content-Type: application/json
    
  
