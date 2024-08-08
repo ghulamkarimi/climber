@@ -1,0 +1,18 @@
+### get all top products
+GET http://localhost:3009/topProducts/getAll
+Content-Type: application/json
+
+
+### create Topproduct
+POST http://localhost:3009/topProducts/create
+Content-Type: application/json
+
+{
+    "title":"jens",
+    "photo":"https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcQ3SLfjMP40jfDju0N6pDPgcA87JBbl4ySKq_9wjNY8GXu_fzj5Uq5FBvD-3RL-ViUuKh2IQZaHQkc74KaQACwu-E9lpz4MVqf6ASG-w3qiVvT5mHXpKoRlM4Qd5-QuOKtAOvYHGkqD&usqp=CAc",
+    "price":"300 $",
+    "evaluation":5,
+    "size":"30",
+    "userId": "66b1e14c1e46ff4305589b02",
+    "category":"men"
+}

@@ -3,9 +3,9 @@ Content-Type: application/json
 
 {
   "userId": "66b1e14c1e46ff4305589b02",
-  "title": "Suit",
+  "title": "Suits mens",
   "categories": "men",
-  "description": "Suit for mens ",
+  "description": "Suit for men",
   "photo": "https://th.bing.com/th/id/OIP.Xt5_b3Q8Q07kjdT1bfuP2wAAAA?rs=1&pid=ImgDetMain"
 }
 

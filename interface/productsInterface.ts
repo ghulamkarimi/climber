@@ -14,13 +14,14 @@ export interface IProductsItems {
   descriptions: string
   evaluation: number
   colors: string[]
-  sizes: string[]
+  size: string[]
 }
 
 export interface ITopProducts {
   title: string;
   photo: string;
   price: string;
+  size: string[];
   evaluation: number;
   user?: mongoose.Types.ObjectId;
   category?: mongoose.Types.ObjectId

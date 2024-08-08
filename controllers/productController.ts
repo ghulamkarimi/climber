@@ -13,20 +13,29 @@ export const getAllProducts = asyncHandler(async (req: Request, res: Response) =
 
 
 export const createProduct = asyncHandler(async (req: Request, res: Response) => {
-    const { userId, title, price, description, photo, category: categoryTitle } = req.body;
+    const { userId, title, price,size, description, photo, category: categoryTitle } = req.body;
 
     try {
         const user = await checkAdmin(new mongoose.Types.ObjectId(userId));
         if (!user) throw new Error('User is not an admin');
 
-        const category = await Categories.findOne({ title: categoryTitle });
+        let category = await Categories.findOne({ categories: categoryTitle });
+        if (!category) {
+            category = await Categories.create({
+                title: categoryTitle,
+                categories: categoryTitle,
+                description: `All products for ${categoryTitle}`
+            });
+        }
+        console.log(category)   
         if (!category) throw new Error('Category not found');
-
+        const sizeArray = Array.isArray(size) ? size : [size];
         const product = await Product.create({
             title,
             price,
             description,
             photo,
+            size: sizeArray,
             user: user._id,
             category: category._id
         });

@@ -27,7 +27,7 @@ app.use(cookieParser());
 app.use("/users", userRouter);
 app.use("/categories" , categoriesRouter);
 app.use("/products" ,productRouter);
-app.use("/top-products" ,topProductRouter);
+app.use("/topProducts" ,topProductRouter);
 
 
 app.use(errorHandler)

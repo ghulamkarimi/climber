@@ -3,7 +3,13 @@ import mongoose from "mongoose";
 
 const categoriesSchema = new mongoose.Schema({
 
-  title: { type: String },
+  title: { 
+    type: String,
+    unique: true,
+    required: true,
+    trim: true,
+    toLowerCase: true
+  },
   categories: { 
     type: String,
     enum: ["men", "women"]

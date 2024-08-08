@@ -5,8 +5,17 @@ import { checkAdmin } from "../types/adminUser";
 import TopProducts from "../models/topProducts";
 import Categories from "../models/categoriesModel";
 
+
+export const getAllProducts = asyncHandler(async (req: Request, res: Response) => {
+    const topProducts = await TopProducts.find();
+    res.json(topProducts);
+}
+);
+
+
+
 export const createTopProducts = asyncHandler(async (req: Request, res: Response) => {
-    const { userId, title, photo, price, evaluation, category: categoryTitle } = req.body;
+    const { userId, title, size, photo, price, evaluation, category: categoryTitle } = req.body;
     try {
         const user = await checkAdmin(new mongoose.Types.ObjectId(userId));
         if (!user) throw new Error("User is not admin");
@@ -25,6 +34,7 @@ export const createTopProducts = asyncHandler(async (req: Request, res: Response
             title,
             photo,
             price,
+            size,
             evaluation,
             user: user._id,
             category: category._id
