@@ -6,8 +6,8 @@ const topProductsSchema = new mongoose.Schema<ITopProducts>({
     photo: { type: String, required: true },
     price: { type: String, required: true },
     evaluation: { type: Number, required: true },
-    user: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
-    category: { type: mongoose.Schema.Types.ObjectId, ref: 'Category'},
+    user: { type: mongoose.Schema.Types.ObjectId, ref: 'Users', required: true },
+    category: { type: mongoose.Schema.Types.ObjectId, ref: 'Categories'},
 
     });
 

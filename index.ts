@@ -7,6 +7,7 @@ import cookieParser from "cookie-parser";
 import categoriesRouter from "./routes/categoriesRouter";
 import { errorHandler, notFound } from "./middleware/errors/errorHandler";
 import productRouter from "./routes/productsRouter";
+import topProductRouter from "./routes/topProductsRouter";
 
 
 dotenv.config();
@@ -25,7 +26,8 @@ app.use(
 app.use(cookieParser());
 app.use("/users", userRouter);
 app.use("/categories" , categoriesRouter);
-app.use("/Products" ,productRouter);
+app.use("/products" ,productRouter);
+app.use("/top-products" ,topProductRouter);
 
 
 app.use(errorHandler)

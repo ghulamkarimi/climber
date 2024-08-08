@@ -17,7 +17,9 @@ export const createCategories = asyncHandler(async (req: Request, res: Response)
 
   try {
     const user = await checkAdmin(new mongoose.Types.ObjectId(userId));
-    const category = await Categories.create({
+    let existingCategory = await Categories.findOne({ title: title.trim().toLowerCase() });
+    if (existingCategory) throw new Error('Category already exists');
+     const category = await Categories.create({
       categories,
       user: user._id,
       title,

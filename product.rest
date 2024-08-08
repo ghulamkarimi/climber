@@ -8,10 +8,25 @@ POST http://localhost:3009/products/create
 Content-Type: application/json
 
 {
-    "userId":"66aca16c0c3b8dfd2e1b0ac8",
-    "title":"khalil",
-    "description":"khalil",
-    "price":100,
-    "photo":"https://th.bing.com/th/id/OPEC.7ZSFWSV1pykp1w474C474?w=200&h=220&rs=1&o=5&dpr=1.1&pid=21.1",
-   
+    "userId": "66ab9818186125ac248eebcc",
+    "title": "khalil10",
+    "description": "khalil10",
+    "price": 70,
+    "photo": "https://th.bing.com/th/id/OPEC.7ZSFWSV1pykp1w474C474?w=200&h=220&rs=1&o=5&dpr=1.1&pid=21.1",
+    "category":"men"
+
+}
+
+
+### create Topproduct
+POST http://localhost:3009/top-products/create
+Content-Type: application/json
+
+{
+    "title":"jens",
+    "photo":"https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcQ3SLfjMP40jfDju0N6pDPgcA87JBbl4ySKq_9wjNY8GXu_fzj5Uq5FBvD-3RL-ViUuKh2IQZaHQkc74KaQACwu-E9lpz4MVqf6ASG-w3qiVvT5mHXpKoRlM4Qd5-QuOKtAOvYHGkqD&usqp=CAc",
+    "price":"300 $",
+    "evaluation":5,
+    "userId": "66ab9818186125ac248eebcc",  
+    "category":"men"
 }
