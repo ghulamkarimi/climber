@@ -18,8 +18,8 @@ POST http://localhost:3009/users/login
 Content-Type: application/json
 
 {
-    "email":"amirali@gmail.com",
-    "password":"Sara.2222!!!"
+    "email":"Khalil.haouas@gmail.com",
+    "password":"Khalilo1902!"
 }
 
 
@@ -29,5 +29,9 @@ Content-Type: application/json
 
 {
     "email":"Khalil.haouas@gmail.com",
-    "password":"1234567"
+    "password":"Khalilo1902!"
 }
+
+
+#### refresh Token
+GET http://localhost:3009/users/token
