@@ -22,11 +22,12 @@ Content-Type: application/json
  }
 
 ### delete category
-   DELETE http://localhost:3009/categories/delete/66acb5899912ac9645bb53aa
+   DELETE http://localhost:3009/categories/delete
 Content-Type: application/json
    
  {
-    "userId":"66aca7fea838c2237f4dce5e"
+   "userId":"66b1e14c1e46ff4305589b02",
+   "categoryId":"66e93f45ab028342a3d2f8ac"
  }
 
 ### get all categories

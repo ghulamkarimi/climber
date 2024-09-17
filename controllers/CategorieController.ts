@@ -76,7 +76,7 @@ export const editCategories = asyncHandler(async (req: CustomRequest, res: Respo
 
 
 export const deleteCategories = asyncHandler(async (req: CustomRequest, res: Response) => {
-  const userId = req.user?._id
+  const userId = req.body.userId;
 
   console.log("userId:", userId);
   const { categoryId } = req.body;
