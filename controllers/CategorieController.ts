@@ -47,8 +47,8 @@ export const createCategories = asyncHandler(async (req: Request, res: Response)
 
 
 export const editCategories = asyncHandler(async (req: CustomRequest, res: Response) => {
-  const { userId, categories, title, photo } = req.body;
-  const categoryId = req.params.id;
+  const { categoryId,userId, categories, title, photo } = req.body;
+
   if (!mongoose.Types.ObjectId.isValid(categoryId)) {
     throw new Error('Invalid category ID');
   }
@@ -80,6 +80,7 @@ export const deleteCategories = asyncHandler(async (req: CustomRequest, res: Res
 
   console.log("userId:", userId);
   const { categoryId } = req.body;
+  console.log("categoryId:", categoryId);
 
   // Validate userId
   if (!userId || !mongoose.Types.ObjectId.isValid(userId)) {
@@ -110,7 +111,7 @@ export const deleteCategories = asyncHandler(async (req: CustomRequest, res: Res
        return
     }
 
-    res.status(200).json({ message: 'Category deleted successfully' });
+    res.status(200).json({ message: 'Category deleted successfully' , category: { _id: categoryId }});
   } catch (error) {
     console.error('Error deleting category:', error);
     res.status(500).json({ message: error.message });

@@ -31,7 +31,7 @@ const storage = multer.diskStorage({
 
 categoriesRouter.get("/getAll", getAllCategories);
 categoriesRouter.post("/create",upload.single('photo'), createCategories);
-categoriesRouter.put("/edit/:id", editCategories);
+categoriesRouter.put("/edit", editCategories);
 categoriesRouter.delete("/delete", deleteCategories);
 
 

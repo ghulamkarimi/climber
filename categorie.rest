@@ -11,14 +11,16 @@ Content-Type: application/json
 
 
 ### edit category
-PUT http://localhost:3009/categories/edit/66acb1f6082652c1a04ba566
+PUT http://localhost:3009/categories/edit
 Content-Type: application/json
 
  {
-      "userId":"66aca16c0c3b8dfd2e1b0ac8",
-      "title":"khalilmmm",
-      "bild":"https://th.bing.com/th/id/OPEC.7ZSFWSV1pykp1w474C474?w=200&h=220&rs=1&o=5&dpr=1.1&pid=21.1",
-      "categories":"menmmmm"
+      "categoryId":"66e9731a2b2018183fceea7f",
+      "userId":"66b9e64fe59cece120bf3c63",
+      "title":"khalilhaouas",
+      "categories":"women",
+      "description":"neu model 2024",
+      "photo":"https://th.bing.com/th/id/OPEC.7ZSFWSV1pykp1w474C474?w=200&h=220&rs=1&o=5&dpr=1.1&pid=21.1"
  }
 
 ### delete category
@@ -26,8 +28,8 @@ Content-Type: application/json
 Content-Type: application/json
    
  {
-   "userId":"66b1e14c1e46ff4305589b02",
-   "categoryId":"66e93f45ab028342a3d2f8ac"
+   "userId":"66b9e64fe59cece120bf3c63",
+   "categoryId":"66be5a71e74edb87276bc53c"
  }
 
 ### get all categories
